@@ -10,7 +10,6 @@ function ImageGenerator() {
     setLoading(true);
     try {
       const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-      const encodedApiKey = encodeURIComponent(apiKey);
       const response = await axios.post(
         'https://api.openai.com/v1/images/generations',
         {
@@ -21,7 +20,7 @@ function ImageGenerator() {
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${encodedApiKey}`
+            'Authorization': `Bearer ${apiKey}`
           }
         }
       );
